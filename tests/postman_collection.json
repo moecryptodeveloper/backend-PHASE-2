@@ -1,0 +1,178 @@
+{
+  "info": {
+    "name": "LinkedIn Backend Phase2 API",
+    "_postman_id": "phase2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List accounts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE}}/api/accounts",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"account_name\": \"Test Account\", \"cookie\": \"li_at=TEST\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE}}/api/accounts",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List campaigns",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE}}/api/campaigns",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "campaigns"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create campaign",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"account_id\": \"<ACCOUNT_ID>\", \"name\": \"Test Campaign\", \"sequence\": [{\"delay\": 86400, \"message\": \"Hi\"}]}"
+        },
+        "url": {
+          "raw": "{{BASE}}/api/campaigns",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "campaigns"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"account_id\": \"<ACCOUNT_ID>\", \"campaign_id\": \"<CAMPAIGN_ID>\", \"task_type\": \"message\", \"payload\": {\"message\": \"Hello\"}}"
+        },
+        "url": {
+          "raw": "{{BASE}}/api/tasks",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create log",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"account_id\": \"<ACCOUNT_ID>\", \"activity_type\": \"message_sent\", \"message\": \"Sent message to X\", \"status\": \"success\"}"
+        },
+        "url": {
+          "raw": "{{BASE}}/api/logs",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "logs"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add proxy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"proxy_url\": \"http://1.2.3.4:8000\"}"
+        },
+        "url": {
+          "raw": "{{BASE}}/api/proxies",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "proxies"
+          ]
+        }
+      }
+    }
+  ]
+}

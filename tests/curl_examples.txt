@@ -1,0 +1,19 @@
+# Replace <BASE> with your backend URL e.g. https://linkedin-backend.onrender.com
+
+# List accounts
+curl -X GET "<BASE>/api/accounts"
+
+# Add account
+curl -X POST "<BASE>/api/accounts" -H "Content-Type: application/json" -d '{"account_name":"Test Account","cookie":"li_at=TEST"}'
+
+# Create campaign
+curl -X POST "<BASE>/api/campaigns" -H "Content-Type: application/json" -d '{"account_id":"<ACCOUNT_ID>","name":"Test Campaign","sequence":[{"delay":86400,"message":"Hi"}]}'
+
+# Create task
+curl -X POST "<BASE>/api/tasks" -H "Content-Type: application/json" -d '{"account_id":"<ACCOUNT_ID>","campaign_id":"<CAMPAIGN_ID>","task_type":"message","payload":{"message":"Hello"}}'
+
+# Create log
+curl -X POST "<BASE>/api/logs" -H "Content-Type: application/json" -d '{"account_id":"<ACCOUNT_ID>","activity_type":"message_sent","message":"Sent message","status":"success"}'
+
+# Add proxy
+curl -X POST "<BASE>/api/proxies" -H "Content-Type: application/json" -d '{"proxy_url":"http://1.2.3.4:8000"}'
